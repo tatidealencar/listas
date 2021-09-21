@@ -1,14 +1,15 @@
 <section>
-    <div class="area-text">
-        <label>Contato</label>
-        <input type="text" id="contact" name="contact" />
-    </div>
-    <div class="area-btn">
-        <!-- vincula o atributo titleButton do Button com o atributo titleButton 
-            de Contacts
-            [binding one-way do .ts para o template] -->
-        <button-action [titleButton]="titleButton"></button-action>
-    </div>
-    <list [titleList]="titleList" [dataList]="dataList"></list>
-    <button-action [titleButton]="titleButtonList"></button-action>
+    <form (submit)="save($event)">
+        <div class="area-text">
+            <label>Novo contato</label>
+            <input type="text" id="contact" name="contact" (input)="handleContact($event)" [value]="contact.name" />
+        </div>
+        <div class="area-btn">
+            <button-action [titleButton]="titleButton"></button-action>
+        </div>
+        <h1>{{titleList}}</h1>
+        <ul>
+            <li (click)="clear($event)" *ngFor="let item of contactList; let i = index" value={{i}}>{{item.name}}</li>
+        </ul>
+    </form>
 </section>

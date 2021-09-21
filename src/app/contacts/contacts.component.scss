@@ -1,5 +1,6 @@
-@import '../../styles.scss';
+@import "../../styles.scss";
 section {
+    display: flex;
     color: $primary_text;
     label {
         margin-top: 14px;
@@ -11,6 +12,7 @@ section {
     }
     .area-btn {
         display: flex;
+        justify-content: flex-end;
         margin-left: 63px;
     }
     input {

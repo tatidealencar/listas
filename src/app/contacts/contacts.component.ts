@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { AppService } from "./contacts.service";
 
 @Component({
     selector: 'contacts',
@@ -6,11 +7,55 @@ import { Component } from "@angular/core";
     styleUrls: ['./contacts.component.scss']
 })
 
-class Contacts {
-    titleButton = "Adicionar";
+export class Contacts implements OnInit {
+    titleButton = "Salvar";
     titleButtonList = "Limpar";
-    dataList = ['Contato1', 'Contato2', 'Contato3'];
-    titleList = "Contatos";
-}
+    contact = {
+        id: '',
+        name: '',
+        username: '',
+        email: '',
+        address: {
+            street: '',
+            suite: '',
+            city: '',
+            zipcode: '',
+            geo: {
+                lat: '',
+                lng: ''
+            }
+        },
+        phone: '',
+        website: '',
+        company: {
+            name: '',
+            catchPhrase: '',
+            bs: ''
+        }
+    };
+    contactList: any;
+    titleList = 'Contatos';
 
-export { Contacts }
+    constructor(private appService: AppService) { }
+
+    ngOnInit() {
+        this.appService.getContactList().subscribe((data: any) => this.contactList = data);
+    }
+
+    handleContact(event: Event) {
+        this.contact.name = (event.target as HTMLInputElement).value;
+        this.contact.id = '11';
+    }
+
+    save(event: Event) {
+        event.preventDefault();
+        this.appService.saveContact(this.contact).subscribe((data: any) =>
+            this.contactList.push(data));
+
+    }
+
+    clear(event: Event) {
+        let id = (event.target as HTMLLIElement).value;
+        this.appService.deleteContact(id).subscribe((data: any) => this.contactList.splice(id, 1));
+    }
+}

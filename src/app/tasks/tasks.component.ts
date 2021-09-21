@@ -23,11 +23,14 @@ class Tasks {
     e adiciona o valor contido no atributo task ao array allTasks */
     save(event: Event) {
         event.preventDefault(); //cancela o evento disparado
-        this.allTasks.push(this.task);
+        if (this.task != "") {
+            this.allTasks.push(this.task);
+        }
+
     }
 
     //o método clear, quando chamado, limpa o array allTasks
-    clear(){
+    clear() {
         this.allTasks = [];
     }
 }
