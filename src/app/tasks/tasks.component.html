@@ -1,0 +1,20 @@
+<section>
+    <!-- Quando o botão é clicado, o método save() é chamado 
+        passando como parâmetro o evento disparado (submit) -->
+    <form (submit)="save($event)">
+        <div class="area-text">
+            <label>Tarefa</label>
+            <!-- Quando o input é preenchido, o método handleTask() é chamado 
+                passando como parâmetro o evento disparado (input) -->
+            <input type="text" id="task" name="task" (input)="handleTask($event)" [value]="task" />
+        </div>
+        <div class="area-btn">
+            <!-- vincula o atributo titleButton do Button com o atributo titleButton 
+            de Tasks [binding one-way do .ts para o template] -->
+            <button-action [titleButton]="titleButton"></button-action>
+        </div>
+        <list [dataList]="allTasks"></list>
+    </form>
+    <!-- Quando o botão é clicado, o método clear() é chamado -->
+    <button-action [titleButton]="titleButtonList" (buttonEvent)="clear()"></button-action>
+</section>

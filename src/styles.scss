@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+$minWidth: 500px;
+$white:#fff;
+$primary_orange: #FFB150;
+$primary_text: #4F4F4F;
+$primary_brown:#BF8947;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $primary_text;
+}

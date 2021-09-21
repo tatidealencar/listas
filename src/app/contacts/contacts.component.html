@@ -1,0 +1,14 @@
+<section>
+    <div class="area-text">
+        <label>Contato</label>
+        <input type="text" id="contact" name="contact" />
+    </div>
+    <div class="area-btn">
+        <!-- vincula o atributo titleButton do Button com o atributo titleButton 
+            de Contacts
+            [binding one-way do .ts para o template] -->
+        <button-action [titleButton]="titleButton"></button-action>
+    </div>
+    <list [titleList]="titleList" [dataList]="dataList"></list>
+    <button-action [titleButton]="titleButtonList"></button-action>
+</section>

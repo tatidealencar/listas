@@ -1,0 +1,6 @@
+<h1>{{titleList}}</h1>
+<ul>
+    <li *ngFor="let item of dataList; let i = index">
+        {{item}}<span *ngIf="i+1 < dataList.length">,&nbsp;</span>
+    </li>
+</ul>

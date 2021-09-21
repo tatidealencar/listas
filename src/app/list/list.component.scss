@@ -1,0 +1,13 @@
+@import '../../styles.scss';
+h1 {
+    margin-top: 54px;
+    font-size: 1.3rem;
+    color: $primary_text;
+}
+
+ul {
+    color: $primary_text;
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
