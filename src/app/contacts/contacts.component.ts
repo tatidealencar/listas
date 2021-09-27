@@ -9,7 +9,6 @@ import { AppService } from "./contacts.service";
 
 export class Contacts implements OnInit {
     titleButton = "Salvar";
-    titleButtonList = "Limpar";
     contact = {
         id: '',
         name: '',

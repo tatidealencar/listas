@@ -15,7 +15,6 @@ export class AppService {
     }
 
     saveContact(contact: any) {
-        console.log(contact);
         return this.http.post(this.listContactUrl, contact);
     }
 

@@ -26,7 +26,6 @@ class Tasks {
         if (this.task != "") {
             this.allTasks.push(this.task);
         }
-
     }
 
     //o método clear, quando chamado, limpa o array allTasks
